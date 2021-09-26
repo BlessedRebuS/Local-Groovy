@@ -5,4 +5,4 @@ A simple python bot built on discord-py that downloads songs from youtube with [
 ## Requirements:
  `pip3 install discord.py`
  
- `pip3 install pip install youtube-search-python`
+ `pip3 install youtube-search-python`
