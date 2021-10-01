@@ -6,3 +6,8 @@ A simple python bot built on discord-py that downloads songs from youtube with [
  `pip3 install discord.py`
  
  `pip3 install youtube-search-python`
+
+## To DO:
+
+- Queues
+- Limit video duration
