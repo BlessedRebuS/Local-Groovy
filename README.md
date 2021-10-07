@@ -11,3 +11,4 @@ A simple python bot built on discord-py that downloads songs from youtube with [
 
 - Queues
 - Limit video duration
+- Optimizations
