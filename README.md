@@ -1,3 +1,5 @@
+[![GitHub branches](https://badgen.net/github/branches/Naereen/Strapdown.js)](https://github.com/BlessedRebuS/Local-Groovy/tree/self_download)
+
 # Local-Groovy (Streams Music)
 A simple python bot built on discord-py that streams songs from youtube with [youtube-dl](https://youtube-dl.org) and plays it locally on your server
 
