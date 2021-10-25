@@ -1,13 +1,25 @@
 import discord
 from discord.ext import commands
 from discord.ext.commands import CommandNotFound
-import os
 import asyncio
 from youtubesearchpython import VideosSearch
+import youtube_dl
 
 # bot params to be changed
 BOT_ID = 0000
 TOKEN = "YOUR_TOKEN"
+
+# set bot intents
+intents = discord.Intents.default()
+intents.members = True
+bot = commands.Bot(command_prefix="", description="Description", intents=intents)
+
+# bot.OBJ to define global bot variables
+bot.set = False
+bot.list = list()
+
+# audio format use bestaudio for better quality (slower performances)
+ydl_opts = {"format": "worstaudio"}
 
 # set bot intents
 intents = discord.Intents.default()
@@ -26,8 +38,6 @@ async def music(ctx):
         and "help music" not in ctx.message.content.lower()
     ):
         bot.list.clear()
-        if not os.path.exists("audio.mp3"):
-            os.remove("audio.mp3")
         x = ctx.message.content.split(" ")
         url = x[1]
         if "http" not in url:
@@ -63,15 +73,11 @@ async def music(ctx):
 
 
 async def player(msg, url):
-    await msg.channel.send("Downloading... " + url)
-    cmd = "youtube-dl --extract-audio --audio-format mp3 -o 'audio.%(ext)s' "
-    song = cmd + " " + url
-    os.system(song)
-    while not os.path.exists("audio.mp3"):
-        await asyncio.sleep(1)
     vc = await msg.author.voice.channel.connect()
-    vc.play(discord.FFmpegPCMAudio("audio.mp3"))
-    print("URL : " + url)
+    with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+        info = ydl.extract_info(url, download=False)
+        URL = info["formats"][0]["url"]
+    vc.play(discord.FFmpegPCMAudio(URL))
     while vc.is_playing():
         await asyncio.sleep(1)
     await vc.disconnect()
