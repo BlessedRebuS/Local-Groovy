@@ -4,7 +4,7 @@
 A simple python bot built on discord-py that streams songs from youtube with [youtube-dl](https://youtube-dl.org) and plays it locally on your server
 
 ## Requirements:
-Put your `TOKEN ID` and your `BOT ID` in the file bot.py
+Put your `TOKEN ID` and your `BOT ID` in the file **bot.py**
 
  ```bash
 pip3 install -r requirements.txt
