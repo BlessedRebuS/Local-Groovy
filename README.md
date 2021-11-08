@@ -3,14 +3,19 @@
 # Local-Groovy (Streams Music)
 A simple python bot built on discord-py that streams songs from youtube with [youtube-dl](https://youtube-dl.org) and plays it locally on your server
 
-
 ## Requirements:
- `pip3 install discord.py`
- 
- `pip3 install youtube-search-python`
+ ```bash
+pip3 install -r requirements.txt
+```
 
+## Start and Enable at boot
+```bash
+sudo su
+cp pythonbot.service /lib/systemd/system
+systemctl daemon-reload
+start pythonbot.service 
+enable pythonbot.service
+```
 ## To DO:
 
 - Queues
-- Limit video duration
-- Optimizations

@@ -1,0 +1,13 @@
+[Unit]
+Description=Bot
+After=network.target network-online.target
+
+[Service]
+Type=simple
+ExecStart=/bin/bash /path/to/script/script.sh
+WorkingDirectory=/path/to/script
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target
