@@ -26,4 +26,6 @@ enable pythonbot.service
 ```
 ## To DO:
 
-- Queues
+- [x] Queues
+- [ ] Skip Track
+- [ ] Forward Track
